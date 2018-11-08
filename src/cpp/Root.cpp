@@ -154,6 +154,10 @@ dds::xrce::ResultStatus Root::delete_client(const dds::xrce::ClientKey& client_k
         }
         clients_.erase(client_key);
         result_status.status(dds::xrce::STATUS_OK);
+#ifdef VERBOSE_OUTPUT
+        std::cout << "<== ";
+        debug::printl_disconnected_client_submessage(client_key);
+#endif
     }
     else
     {

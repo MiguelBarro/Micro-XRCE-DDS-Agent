@@ -57,6 +57,7 @@ void printl_create_submessage(const dds::xrce::ClientKey& client_key,
                               const dds::xrce::ObjectVariant& representation);
 void printl_create_client_submessage(const dds::xrce::CREATE_CLIENT_Payload& payload);
 void printl_connected_client_submessage(const dds::xrce::CLIENT_Representation& representation);
+void printl_disconnected_client_submessage(const dds::xrce::ClientKey& client_key);
 void printl_delete_submessage(const dds::xrce::DELETE_Payload& payload);
 void printl_status_submessage(const dds::xrce::STATUS_Payload& payload);
 void printl_write_data_submessage(const dds::xrce::WRITE_DATA_Payload_Data& payload);

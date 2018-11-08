@@ -31,6 +31,7 @@ namespace debug {
 
 const std::string GREEN         = "\x1B[1;32m";
 const std::string YELLOW        = "\x1B[1;33m";
+const std::string PURPLE        = "\x1B[1;35m";
 const std::string RESTORE_COLOR = "\x1B[0m";
 
 uint16_t platform_array_to_num(const std::array<uint8_t, 2>& array)
@@ -344,6 +345,14 @@ void printl_connected_client_submessage(const dds::xrce::CLIENT_Representation& 
     printf("%s[Client connected | session: 0x%02X | client key: 0x%02X 0x%02X 0x%02X 0x%02X ]%s\n",
            YELLOW.data(),
            representation.session_id(),
+           client_key[0], client_key[1], client_key[2], client_key[3],
+           RESTORE_COLOR.data());
+}
+
+void printl_disconnected_client_submessage(const dds::xrce::ClientKey& client_key)
+{
+    printf("%s[Client disconnected | client key: 0x%02X 0x%02X 0x%02X 0x%02X ]%s\n",
+           PURPLE.data(),
            client_key[0], client_key[1], client_key[2], client_key[3],
            RESTORE_COLOR.data());
 }
