@@ -87,6 +87,10 @@ dds::xrce::ResultStatus Root::create_client(const dds::xrce::CLIENT_Representati
                 if (session_id != client->get_session_id())
                 {
                     it->second = std::make_shared<ProxyClient>(client_representation);
+#ifdef VERBOSE_OUTPUT
+                    std::cout << "<== ";
+                    debug::printl_connected_client_submessage(client_representation);
+#endif
                 }
                 else
                 {
