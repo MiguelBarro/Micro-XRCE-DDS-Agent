@@ -18,7 +18,7 @@
 namespace eprosima {
 namespace uxr {
 
-TCPServer::TCPServer(uint16_t port)
+TCPServer::TCPServer(uint16_t port, uint16_t discovery_port)
     : TCPServerBase(port),
       connections_{},
       active_connections_(),
@@ -29,10 +29,14 @@ TCPServer::TCPServer(uint16_t port)
       listener_thread_(),
       running_cond_(false),
       messages_queue_{}
-{}
-
-bool TCPServer::init()
 {
+    (void) discovery_port;
+}
+
+bool TCPServer::init(bool discovery_enabled)
+{
+    (void) discovery_enabled;
+
     bool rv = false;
 
     /* Socket initialization. */
